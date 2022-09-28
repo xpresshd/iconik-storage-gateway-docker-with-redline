@@ -1,5 +1,5 @@
 FROM ubuntu:bionic
-MAINTAINER iconik Media AB <info@iconik.io>
+LABEL org.opencontainers.image.authors="info@iconik.io"
 ENV INSTALL_DIR=/opt/cantemo/iconik_storage_gateway \
     DEBEMAIL=info@iconik.io \
     DEBFULLNAME="iconik Media AB"
@@ -22,6 +22,12 @@ RUN apt-get update && apt-get install -y wget gnupg && \
     apt-get update && \
     apt-get install -y iconik-storage-gateway
 VOLUME /var/cantemo/iconik_storage_gateway/data
+
+RUN wget https://downloads.red.com/software/rcx/linux/beta/55.1.52132/REDline_Build_55.1.52100_Installer.sh && \
+    chmod +x REDline_Build_55.1.52100_Installer.sh && \
+    ./REDline_Build_55.1.52100_Installer.sh && \
+    mv /usr/local/bin/REDline /usr/local/bin/redline
+
 CMD $INSTALL_DIR/iconik_storage_gateway \
     --iconik-url=${ICONIK_URL:-https://app-lb.iconik.io/} \
     --auth-token=${AUTH_TOKEN} \
