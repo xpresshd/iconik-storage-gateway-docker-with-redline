@@ -1,0 +1,5 @@
+#!/bin/bash
+
+opts=( $REDLINE_ARGS )
+
+/usr/local/bin/REDline "$@" "${opts[@]}"
