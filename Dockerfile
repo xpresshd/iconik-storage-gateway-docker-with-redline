@@ -25,8 +25,9 @@ VOLUME /var/cantemo/iconik_storage_gateway/data
 
 RUN wget https://downloads.red.com/software/rcx/linux/beta/55.1.52132/REDline_Build_55.1.52100_Installer.sh && \
     chmod +x REDline_Build_55.1.52100_Installer.sh && \
-    ./REDline_Build_55.1.52100_Installer.sh && \
-    mv /usr/local/bin/REDline /usr/local/bin/redline
+    ./REDline_Build_55.1.52100_Installer.sh
+
+COPY ./redline /usr/local/bin/redline
 
 CMD $INSTALL_DIR/iconik_storage_gateway \
     --iconik-url=${ICONIK_URL:-https://app-lb.iconik.io/} \
