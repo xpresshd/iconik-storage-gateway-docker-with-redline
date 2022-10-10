@@ -9,7 +9,7 @@ $ docker run -it \
     --env AUTH_TOKEN="my_auth_token" \
     --env APP_ID="my_app_id" \
     --env STORAGE_ID="my_storage_id" \
-    --env REDLINE_ARGS="--useMeta" \
+    --env REDLINE_ARGS=--useMeta \
     -v /mnt/my_nas:/mnt/mynas \
     -v /home/my_user/isg_local_data:/var/cantemo/iconik_storage_gateway/data \
     docker_isg:latest
