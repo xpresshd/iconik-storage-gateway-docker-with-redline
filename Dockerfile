@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:jammy
 MAINTAINER iconik Media AB <info@iconik.io>
 
 ARG DEBIAN_FRONTEND=noninteractive
